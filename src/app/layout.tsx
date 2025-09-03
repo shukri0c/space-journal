@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Stargazer Journal",
+  title: "Stargazer's Journal",
   description: "Store your observations of the night sky!",
 };
 
