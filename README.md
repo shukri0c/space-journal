@@ -41,6 +41,7 @@ Each entry includes:
 - **Frontend:** Next.js + Tailwind CSS
 - **Backend:** Node.js (API routes in Next.js)
 - **Database:** PostgreSQL
+- **ORM:** Prisma
 - **Authentication:** NextAuth.js
 - **Deployment:** Vercel
 
