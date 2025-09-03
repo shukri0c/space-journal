@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Stargazer's Journal
 
 _A personal stargazing journal used to log observations aswell as display real astronomical data_
@@ -12,7 +10,7 @@ A full-stack astronomy journaling app built with Next.js, PostgreSQL and Tailwin
 Each entry includes:
 
 - Title
-- Automatically fetched astronomical data
+- Automatically fetched astronomical data:
   - Sunset time
   - Moon phase
   - Visible planets
@@ -46,6 +44,8 @@ Each entry includes:
 - **Authentication:** NextAuth.js
 - **Deployment:** Vercel
 
+---
+
 ## Setup Instructions
 
 1. Clone the repository
@@ -69,4 +69,6 @@ npm run dev
 
 4. Open the app
 
+```
 Visit http://localhost:3000 in your browser.
+```
