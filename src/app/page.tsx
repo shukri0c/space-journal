@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="flex-1 flex flex-col items-center justify-center">
@@ -5,10 +7,23 @@ export default function Home() {
         <h1 className="text-4xl font-bold mb-4 mt-50 text-center">
           Welcome to the Stargazer's Journal!
         </h1>
-        <p className="text-lg text-center">
-          Store your observations of the night sky! //add login and signup
-          buttons
+        <p className=" mb-10 text-lg text-center">
+          Store your observations of the night sky!
         </p>
+        <div className="flex justify-center gap-4">
+          <Link
+            href="/login"
+            className=" w-27 text-center px-6 py-2 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-800"
+          >
+            Login
+          </Link>
+          <Link
+            href="/signup"
+            className="w-27 text-center px-6 py-2 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-800"
+          >
+            Sign Up
+          </Link>
+        </div>
       </section>
 
       <section className=" ml-50 mr-50 mt-10 mb-50 text-center">
