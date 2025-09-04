@@ -1,15 +1,21 @@
-import Image from "next/image";
+"use client";
 
+import { useActionState } from "react";
 import Link from "next/link";
-import { signupUser } from "../actions/auth";
+import { signupUser, type SignupState } from "../actions/auth";
 
 export default function SignUp() {
+  const initialState: SignupState = { error: null };
+  const [state, formAction] = useActionState(signupUser, initialState);
   return (
     <main className="flex-1 flex items-center justify-center">
       <div className="w-full max-w-sm bg-white shadow-md rounded-lg p-6">
         <h1 className="text-2xl font-semibold text-center mb-4">Sign Up</h1>
 
-        <form action={signupUser} className="flex flex-col space-y-4">
+        <form action={formAction} className="flex flex-col space-y-4">
+          {state.error && (
+            <p className="text-red-600 text-sm text-center">{state.error}</p>
+          )}
           <div>
             <label
               htmlFor="username"
