@@ -3,10 +3,26 @@
 import { useActionState } from "react";
 import Link from "next/link";
 import { signupUser, type SignupState } from "../actions/auth";
+import { signIn } from "next-auth/react";
 
 export default function SignUp() {
   const initialState: SignupState = { error: null };
-  const [state, formAction] = useActionState(signupUser, initialState);
+  const [state, formAction] = useActionState(
+    async (prev: SignupState, formData: FormData): Promise<SignupState> => {
+      const result = await signupUser(prev, formData);
+      if (!result.error) {
+        await signIn("credentials", {
+          redirect: true,
+          identifier: formData.get("email") as string,
+          password: formData.get("password") as string,
+          callbackUrl: "/dashboard",
+        });
+      }
+      return result;
+    },
+    initialState
+  );
+
   return (
     <main className="flex-1 flex items-center justify-center">
       <div className="w-full max-w-sm bg-white shadow-md rounded-lg p-6">

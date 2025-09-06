@@ -1,28 +1,39 @@
 "use client";
-
+import { signIn } from "next-auth/react";
 import { useActionState } from "react";
 import Link from "next/link";
 import { loginUser, type LoginState } from "../actions/auth";
+import { useState } from "react";
 
 export default function Login() {
-  const initialState: LoginState = { error: null };
+  const [error, setError] = useState<string | null>(null);
 
   // Wrap the server action so `useActionState` works properly
-  const [state, formAction, isPending] = useActionState(
-    async (_prevState: LoginState, formData: FormData) => {
-      return await loginUser(_prevState, formData);
-    },
-    initialState
-  );
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const identifier = formData.get("identifier") as string;
+    const password = formData.get("password") as string;
+
+    const res = await signIn("credentials", {
+      redirect: false,
+      identifier,
+      password,
+    });
+
+    if (res?.error) {
+      setError(res.error);
+    } else {
+      window.location.href = "/dashboard";
+    }
+  }
   return (
     <main className="flex-1 flex items-center justify-center">
       <div className="w-full max-w-sm bg-white shadow-md rounded-lg p-6">
         <h1 className="text-2xl font-semibold text-center mb-4">Log in</h1>
 
-        <form action={formAction} className="flex flex-col space-y-4">
-          {state.error && (
-            <p className="text-red-600 text-sm text-center">{state.error}</p>
-          )}
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+          {error && <p className="text-red-600 text-sm text-center">{error}</p>}
           <div>
             <label
               htmlFor="identifier"

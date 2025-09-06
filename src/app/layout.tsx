@@ -1,10 +1,14 @@
 import Container from "./components/Container";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Providers } from "./providers";
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+// app/layout.tsx
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,13 +33,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-200">
-        <Container>
-          <Header />
-          <main className="flex-1 flex items-center justify-center">
-            {children}
-          </main>
-          <Footer />
-        </Container>
+        <Providers>
+          <Container>
+            <Header />
+            <main className="flex-1 flex items-center justify-center">
+              {children}
+            </main>
+            <Footer />
+          </Container>
+        </Providers>
       </body>
     </html>
   );
