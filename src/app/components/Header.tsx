@@ -7,7 +7,7 @@ export default function Header() {
   const { data: session } = useSession();
 
   return (
-    <header className="flex justify-between items-center py-5 px-6 bg-black/70 text-white border-b border-white sticky top-0 z-50 backdrop-blur-md">
+    <header className="flex justify-between items-center py-5 px-6 bg-black/50 text-white border-b border-white sticky top-0 z-50 backdrop-blur-md">
       <h1 className="text-xl font-bold">Stargazer Journal</h1>
 
       <nav className="flex gap-6 text-lg">

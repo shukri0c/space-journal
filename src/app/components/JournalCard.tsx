@@ -1,24 +1,34 @@
-// components/JournalCard.tsx
 import Link from "next/link";
 
 interface JournalCardProps {
   id: number;
   title: string;
-  createdAt: string;
+  content?: string | null;
+  createdAt: Date | string;
 }
 
 export default function JournalCard({
   id,
   title,
+  content,
   createdAt,
 }: JournalCardProps) {
   return (
-    <Link href={`/entry/${id}`}>
-      <div className="p-4 bg-white shadow-md rounded-lg hover:shadow-xl transition cursor-pointer">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-sm text-gray-500">
-          {new Date(createdAt).toLocaleDateString()}
+    <Link href={`/dashboard/entry/${id}`}>
+      <div className="bg-gray-800 rounded-lg p-6 shadow hover:shadow-lg transition cursor-pointer">
+        <h3 className="text-xl font-semibold">{title}</h3>
+        <p className="text-sm text-gray-400">
+          {new Date(createdAt).toLocaleDateString()} •{" "}
+          {new Date(createdAt).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
         </p>
+        {content && (
+          <p className="mt-3 text-gray-200">
+            {content.length > 120 ? content.slice(0, 120) + "..." : content}
+          </p>
+        )}
       </div>
     </Link>
   );

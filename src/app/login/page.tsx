@@ -1,14 +1,14 @@
 "use client";
-import { signIn } from "next-auth/react";
-import { useActionState } from "react";
+
 import Link from "next/link";
-import { loginUser, type LoginState } from "../actions/auth";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Login() {
+  const router = useRouter();
   const [error, setError] = useState<string | null>(null);
 
-  // Wrap the server action so `useActionState` works properly
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -16,17 +16,19 @@ export default function Login() {
     const password = formData.get("password") as string;
 
     const res = await signIn("credentials", {
-      redirect: false,
+      redirect: false, // we handle redirect manually
       identifier,
       password,
     });
 
     if (res?.error) {
-      setError(res.error);
+      setError("Invalid username/email or password");
     } else {
-      window.location.href = "/dashboard";
+      // ✅ User authenticated successfully
+      router.push("/dashboard");
     }
   }
+
   return (
     <main className="flex-1 flex items-center justify-center">
       <div className="w-full max-w-sm bg-white shadow-md rounded-lg p-6">

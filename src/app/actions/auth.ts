@@ -50,6 +50,8 @@ export async function signupUser(
 }
 
 
+
+
 export type LoginState = {
   error: string | null;
 };
@@ -70,13 +72,9 @@ export async function loginUser(
 
   const { identifier, password } = parsed.data;
 
-  
   const user = await db.user.findFirst({
     where: {
-      OR: [
-        { email: identifier },
-        { username: identifier },
-      ],
+      OR: [{ email: identifier }, { username: identifier }],
     },
   });
 
@@ -89,6 +87,6 @@ export async function loginUser(
     return { error: "Invalid username/email or password" };
   }
 
-  redirect("/dashboard");
+  // ✅ Return null error to indicate success
   return { error: null };
 }
