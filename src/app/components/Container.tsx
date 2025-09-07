@@ -6,7 +6,9 @@ export default function Container({
   className?: string;
 }) {
   return (
-    <div className={`min-h-screen mx-auto bg-white flex flex-col ${className}`}>
+    <div
+      className={`min-h-screen mx-auto bg-[#0b0f2b]  flex flex-col ${className}`}
+    >
       {children}
     </div>
   );

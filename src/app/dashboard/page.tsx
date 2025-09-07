@@ -9,8 +9,8 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
+    <div className="text-white p-6">
+      <h1 className=" text-2xl font-bold">Dashboard</h1>
       <p>Welcome, {session.user?.name ?? session.user?.email} 🎉</p>
     </div>
   );
