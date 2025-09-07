@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function Entry() {
   return (
     <main className="flex-1 flex items-center justify-center">
       <p className="text-center text-xl">Entries</p>
