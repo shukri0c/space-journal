@@ -44,7 +44,7 @@ export async function signupUser(
     data: { username, email, password: hashedPassword },
   });
 
-  redirect("/dashboard");
+  
 
   return { error: null }; // <- TS happy, even though redirect exits
 }
