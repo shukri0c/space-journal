@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@/app/auth";
 import { db } from "@/lib/db";
 import JournalCard from "@/app/components/JournalCard";
-import Link from "next/link";
+import AddEntryButton from "@/app/components/AddEntryButton";
 
 export default async function DashboardPage() {
   const session = await auth();
@@ -32,9 +32,10 @@ export default async function DashboardPage() {
           <h2 className="text-3xl font-bold">
             Welcome, {session.user.name ?? session.user.email} 🎉
           </h2>
-          <p className="text-gray-400 mt-2">
+          <p className="text-gray-400 mt-2 mb-10">
             Here are your latest journal entries:
           </p>
+          <AddEntryButton />
         </div>
 
         {entries.length === 0 ? (
