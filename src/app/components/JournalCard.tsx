@@ -15,7 +15,7 @@ export default function JournalCard({
 }: JournalCardProps) {
   return (
     <Link href={`/dashboard/entry/${id}`}>
-      <div className="bg-gray-800 rounded-lg p-6 shadow hover:shadow-lg transition cursor-pointer">
+      <div className="bg-gray-800 rounded-lg p-6 transition-colors duration-200 cursor-pointer mb-10 hover:bg-gray-700">
         <h3 className="text-xl font-semibold">{title}</h3>
         <p className="text-sm text-gray-400">
           {new Date(createdAt).toLocaleDateString()} •{" "}
