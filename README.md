@@ -25,13 +25,13 @@ Each entry includes:
 - Hardcoded pages built with Next.js
 - Styled with Tailwind CSS
 - Runs locally with Next.js dev server
+- User authentication (signup/login)
+- Dashboard with multiple entries
 
 ## Expected Features
 
-- User authentication (signup/login)
 - CRUD | Create, view, edit, and delete journal entries
 - Auto-fetched astronomy data per entry
-- Dashboard with entry statistics
 - Deployed on Vercel (planned)
 
 ---
