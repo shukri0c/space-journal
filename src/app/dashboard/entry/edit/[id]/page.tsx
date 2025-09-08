@@ -59,12 +59,14 @@ export default function EditEntryPage() {
   }
 
   return (
-    <div className="flex justify-center items-start p-10 min-h-screen bg-gray-900 text-white">
-      <EntryForm
-        initialTitle={entry.title}
-        initialContent={entry.content}
-        onSubmit={handleUpdate}
-      />
-    </div>
+    <main className="flex-1 ml-64 p-10 bg-gray-900 min-h-screen min-w-screen text-white">
+      <div className="flex justify-center items-start p-10 min-h-screen bg-gray-900 text-white">
+        <EntryForm
+          initialTitle={entry.title}
+          initialContent={entry.content}
+          onSubmit={handleUpdate}
+        />
+      </div>
+    </main>
   );
 }

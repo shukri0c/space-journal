@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className="bg-gray-200">
         <Providers>
           <Container>
-            <Header showAuthLinksOnly />
+            <Header />
             <main className="flex-1 flex items-center justify-center">
               {children}
             </main>
