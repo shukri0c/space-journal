@@ -24,7 +24,7 @@ export default async function Entry({ params }: EntryPageProps) {
   if (!entry || entry.userId !== user.id) redirect("/dashboard/journal");
 
   return (
-    <main className="flex-1 ml-64 p-10 bg-gray-900 min-h-screen">
+    <main className="flex-1 ml-50 p-10 bg-gray-900 min-h-screen ">
       <div className="bg-gray-800 rounded-lg p-6 transition-colors duration-200 mb-10 ml-20 mr-20 mt-20 bg-gradient-to-br from-gray-800 to-gray-700">
         <h1 className="text-2xl font-bold text-gray-200 mb-2">{entry.title}</h1>
         <p className="text-sm text-gray-400 mb-4">

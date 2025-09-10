@@ -11,10 +11,10 @@ export default function Sidebar() {
         >
           Home
         </Link>
-        <Link href="/" className="block text-gray-300 hover:text-white">
+        <Link href="#" className="block text-gray-300 hover:text-white">
           Journal (In Progress)
         </Link>
-        <Link href="/" className="block text-gray-300 hover:text-white">
+        <Link href="#" className="block text-gray-300 hover:text-white">
           Profile (In Progress)
         </Link>
       </nav>

@@ -2,17 +2,19 @@
 
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 interface HeaderProps {
-  showAuthLinksOnly?: boolean; // optional
+  showAuthLinksOnly?: boolean;
 }
 
 export default function Header({ showAuthLinksOnly }: HeaderProps) {
   const { data: session } = useSession();
+  const router = useRouter();
 
   const handleLogout = () => {
     // Optional logout spinner logic
-    signOut({ callbackUrl: "/" });
+    router.push("/dashboard/loggingOut");
   };
 
   // If forced to show auth links (login/signup), ignore session

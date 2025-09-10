@@ -23,7 +23,7 @@ export default function NewEntryPageClient({
   }
 
   return (
-    <main className="flex justify-center items-start p-10 min-h-screen bg-gray-900 text-white">
+    <main className="flex-1 ml-20 p-10 bg-gray-900 min-h-screen  text-white mr-20 mt-10">
       {loading ? <p>Saving entry...</p> : <EntryForm onSubmit={handleSubmit} />}
     </main>
   );
