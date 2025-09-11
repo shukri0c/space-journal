@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { SunMoonData, AstronomyEvent } from "@/lib/astronomyAPI";
+import Image from "next/image";
 
 export default function AstronomyWidgetClient() {
   const [sunMoon, setSunMoon] = useState<SunMoonData | null>(null);
@@ -57,55 +58,74 @@ export default function AstronomyWidgetClient() {
     fetchData();
   }, []);
 
-  if (loading) return <p>Loading astronomy data...</p>;
-  if (error) return <p className="text-red-500">Error: {error}</p>;
+  if (loading)
+    return (
+      <div className="bg-gray-800 p-4 rounded-lg mb-4 w-full">
+        <p className="text-white">Loading astronomy data...</p>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="bg-gray-800 p-4 rounded-lg mb-4 w-full">
+        <p className="text-red-400">Error: {error}</p>
+      </div>
+    );
 
   return (
-    <div className="bg-gray-800 p-3 rounded-lg mb-4 w-full max-w-3xl mt-10">
-      <h2 className="text-lg font-bold mb-2">Astronomy Today</h2>
+    <div className="bg-gray-800 p-4 rounded-lg mb-4 w-full max-w-3xl mt-6 md:mt-10">
+      <h2 className="text-lg font-bold mb-3 text-white">Astronomy Today</h2>
 
-      <div className="space-y-3">
+      <div className="space-y-4">
         {sunMoon && (
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs">
-            <p>
-              <strong>Sunrise:</strong>
-              <br />
-              {sunMoon.sunrise}
-            </p>
-            <p>
-              <strong>Sunset:</strong>
-              <br />
-              {sunMoon.sunset}
-            </p>
-            <p>
-              <strong>Moonrise:</strong>
-              <br />
-              {sunMoon.moonrise}
-            </p>
-            <p>
-              <strong>Moonset:</strong>
-              <br />
-              {sunMoon.moonset}
-            </p>
-            <p>
-              <strong>Moon Phase:</strong>
-              <br />
-              {sunMoon.moon_phase}
-            </p>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-sm">
+            <div className="bg-gray-700 p-2 rounded">
+              <strong className="text-blue-300 block text-xs">Sunrise</strong>
+              <span className="text-white">{sunMoon.sunrise}</span>
+            </div>
+            <div className="bg-gray-700 p-2 rounded">
+              <strong className="text-blue-300 block text-xs">Sunset</strong>
+              <span className="text-white">{sunMoon.sunset}</span>
+            </div>
+            <div className="bg-gray-700 p-2 rounded">
+              <strong className="text-blue-300 block text-xs">Moonrise</strong>
+              <span className="text-white">{sunMoon.moonrise}</span>
+            </div>
+            <div className="bg-gray-700 p-2 rounded">
+              <strong className="text-blue-300 block text-xs">Moonset</strong>
+              <span className="text-white">{sunMoon.moonset}</span>
+            </div>
+            <div className="bg-gray-700 p-2 rounded md:col-span-1 col-span-2">
+              <strong className="text-blue-300 block text-xs">
+                Moon Phase
+              </strong>
+              <span className="text-white">{sunMoon.moon_phase}</span>
+            </div>
           </div>
         )}
 
         {nasaEvent && (
-          <div className="pt-3 border-t border-gray-700">
-            <h3 className="text-sm font-semibold mb-1">
-              {nasaEvent.title} ({nasaEvent.date})
+          <div className="pt-4 border-t border-gray-600">
+            <h3 className="text-md font-semibold mb-2 text-white">
+              {nasaEvent.title}{" "}
+              <span className="text-gray-400 text-sm">({nasaEvent.date})</span>
             </h3>
-            <img
-              src={nasaEvent.url}
-              alt={nasaEvent.title}
-              className="rounded-lg mb-2 w-full max-w-xs mx-auto"
-            />
-            <p className="text-gray-300 text-xs">{nasaEvent.explanation}</p>
+
+            <div className="relative w-full h-48 md:h-64 mb-3 rounded-lg overflow-hidden">
+              <Image
+                src={nasaEvent.url}
+                alt={nasaEvent.title}
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="rounded-lg"
+              />
+            </div>
+
+            <p className="text-gray-300 text-sm leading-relaxed">
+              {nasaEvent.explanation.length > 200
+                ? `${nasaEvent.explanation.substring(0, 200)}...`
+                : nasaEvent.explanation}
+            </p>
           </div>
         )}
       </div>
