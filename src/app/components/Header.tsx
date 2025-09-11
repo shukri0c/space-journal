@@ -25,7 +25,7 @@ export default function Header({ showAuthLinksOnly }: HeaderProps) {
   const isLoggedIn = showAuthLinksOnly ? false : !!session;
 
   return (
-    <header className="bg-black text-white py-3 px-4 border-b border-gray-700 sticky top-0 z-50">
+    <header className="bg-black/70 text-white py-3 px-4 border-b border-gray-700 sticky top-0 z-50">
       <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
         <Link href={isLoggedIn ? "/dashboard" : "/"} className="sm:flex-1">
           <h1 className="text-xl font-bold text-center sm:text-left">
