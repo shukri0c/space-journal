@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { auth } from "@/app/auth";
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
-  const entryId = parseInt(params.id, 10);
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params; // Await the params promise
+  const entryId = parseInt(id, 10); // Use the destructured 'id'
 
   const session = await auth();
   if (!session?.user?.email) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -17,8 +18,10 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   return NextResponse.json(entry);
 }
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
-  const entryId = parseInt(params.id, 10);
+export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params; // Await the params promise
+  const entryId = parseInt(id, 10); // Use the destructured 'id'
+
   const body = await req.json();
   const { title, content } = body;
 
@@ -36,8 +39,9 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   return NextResponse.json(updatedEntry);
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
-  const entryId = parseInt(params.id, 10);
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params; // Await the params promise
+  const entryId = parseInt(id, 10); // Use the destructured 'id'
 
   const session = await auth();
   if (!session?.user?.email) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
