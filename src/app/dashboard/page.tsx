@@ -28,43 +28,27 @@ export default async function DashboardPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Main content */}
-      <main className="p-4 md:p-10 lg:ml-64">
-        {" "}
-        {/* Responsive padding and layout */}
-        <div className="mb-8 md:mb-10">
-          {" "}
-          {/* Reduced bottom margin on mobile */}
+      <main className="p-4 md:p-6">
+        <div className="mb-6 md:mb-8">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            {" "}
-            {/* Responsive text size */}
             Welcome, {session.user.name ?? session.user.email} 🎉
           </h2>
-          <div className="mb-6 md:mb-8">
-            {" "}
-            {/* Container for Astronomy widget */}
+          <div className="mb-4 md:mb-6">
             <AstronomyWidgetClient />
           </div>
-          <p className="text-gray-400 mb-6 md:mb-8 text-sm md:text-base">
-            {" "}
-            {/* Responsive text */}
+          <p className="text-gray-400 mb-4 md:mb-6 text-sm md:text-base">
             Here are your latest journal entries:
           </p>
-          <div className="mb-6 md:mb-8">
-            {" "}
-            {/* Container for button */}
+          <div className="mb-4 md:mb-6">
             <AddEntryButton />
           </div>
         </div>
         {entries.length === 0 ? (
           <p className="text-gray-400 text-base md:text-lg">
-            {" "}
-            {/* Responsive text */}
             You don’t have any journal entries yet...
           </p>
         ) : (
           <div className="space-y-4 md:space-y-6">
-            {" "}
-            {/* Reduced spacing on mobile */}
             {entries.map((entry) => (
               <JournalCard
                 key={entry.id}
