@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FiTrash2, FiEdit, FiLoader } from "react-icons/fi";
+import { FiTrash2, FiEdit } from "react-icons/fi";
 import { deleteEntry } from "@/app/actions/entryActions.server";
 import { useState } from "react";
 
@@ -31,39 +31,23 @@ export default function JournalCard({
   };
 
   return (
-    <div className="relative bg-gray-800 rounded-lg p-4 md:p-6 hover:bg-gray-700 transition cursor-pointer mb-4 md:mb-6">
+    <div className="relative bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition cursor-pointer mb-10">
       {/* Delete button */}
       <button
         onClick={handleDelete}
-        className="absolute top-3 right-3 md:top-4 md:right-4 text-red-500 hover:text-red-400 transition-colors"
+        className="absolute top-4 right-4 text-red-500 hover:text-red-400"
         disabled={isDeleting}
         title="Delete entry"
-        aria-label="Delete entry"
       >
-        {isDeleting ? (
-          <FiLoader size={18} className="animate-spin" />
-        ) : (
-          <FiTrash2 size={18} />
-        )}
+        <FiTrash2 size={20} />
       </button>
-
-      {/* Edit button */}
-      <Link
-        href={`/dashboard/entry/edit/${id}`}
-        className="absolute top-3 right-10 md:top-4 md:right-11"
-        aria-label="Edit entry"
-      >
-        <FiEdit
-          className="text-blue-400 hover:text-blue-500 cursor-pointer transition-colors"
-          size={18}
-        />
+      <Link href={`/dashboard/entry/edit/${id}`}>
+        <FiEdit className="text-blue-400 hover:text-blue-500 cursor-pointer absolute top-4 right-11" />
       </Link>
 
       <Link href={`/dashboard/entry/${id}`}>
-        <h3 className="text-lg md:text-xl font-semibold text-white line-clamp-2 mb-1">
-          {title}
-        </h3>
-        <p className="text-xs md:text-sm text-gray-400 mb-3">
+        <h3 className="text-xl font-semibold">{title}</h3>
+        <p className="text-sm text-gray-400">
           {new Date(createdAt).toLocaleDateString()} •{" "}
           {new Date(createdAt).toLocaleTimeString([], {
             hour: "2-digit",
@@ -71,8 +55,8 @@ export default function JournalCard({
           })}
         </p>
         {content && (
-          <p className="text-sm md:text-base text-gray-200 line-clamp-3">
-            {content}
+          <p className="mt-3 text-gray-200">
+            {content.length > 120 ? content.slice(0, 120) + "..." : content}
           </p>
         )}
       </Link>
