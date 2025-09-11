@@ -29,11 +29,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body className="bg-gray-200">
         <Providers>
           <Container>
             <Header />
-            <main className="flex-1 flex items-center justify-center">
+            <main className="flex-1 flex items-center justify-center p-4">
               {children}
             </main>
             <Footer />
