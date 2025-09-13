@@ -25,37 +25,40 @@ export default function Header({ showAuthLinksOnly }: HeaderProps) {
   const isLoggedIn = showAuthLinksOnly ? false : !!session;
 
   return (
-    <header className="bg-black backdrop-blur-md text-white py-3 px-4 border-b border-gray-700 sticky top-0 z-50">
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
+    <header className="bg-black/30 backdrop-blur-lg text-white py-5 px-6 border-b border-white/20 sticky top-0 z-50 w-full">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0 max-w-7xl mx-auto">
         <Link href={isLoggedIn ? "/dashboard" : "/"} className="sm:flex-1">
-          <h1 className="text-xl font-bold text-center sm:text-left">
+          <h1 className="text-2xl font-bold text-center sm:text-left tracking-wide">
             Stargazer Journal
           </h1>
         </Link>
 
-        <nav className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base">
+        <nav className="flex flex-wrap justify-center gap-4 sm:gap-8 text-base sm:text-lg">
           {isLoggedIn ? (
             <button
               onClick={handleLogout}
-              className="hover:text-gray-300 transition-colors"
+              className="hover:text-gray-300 transition-colors duration-200 font-medium"
               aria-label="Sign out"
             >
               Log Out
             </button>
           ) : (
             <>
-              <Link href="/" className="hover:text-gray-300 transition-colors">
+              <Link
+                href="/"
+                className="hover:text-gray-300 transition-colors duration-200 font-medium"
+              >
                 Home
               </Link>
               <Link
                 href="/login"
-                className="hover:text-gray-300 transition-colors"
+                className="hover:text-gray-300 transition-colors duration-200 font-medium"
               >
                 Log In
               </Link>
               <Link
                 href="/signup"
-                className="hover:text-gray-300 transition-colors"
+                className="hover:text-gray-300 transition-colors duration-200 font-medium"
               >
                 Sign Up
               </Link>
