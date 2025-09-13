@@ -26,7 +26,7 @@ export default function Header({ showAuthLinksOnly }: HeaderProps) {
 
   return (
     <header className="bg-black/30 backdrop-blur-lg text-white py-5 px-6 border-b border-white/20 sticky top-0 z-50 w-full">
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0 max-w-7xl mx-auto">
+      <div className="flex flex-col sm:flex-row justify-between  gap-3 sm:gap-0 max-w-7xl mx-auto">
         <Link href={isLoggedIn ? "/dashboard" : "/"} className="sm:flex-1">
           <h1 className="text-2xl font-bold sm:text-left tracking-wide">
             Stargazer Journal
