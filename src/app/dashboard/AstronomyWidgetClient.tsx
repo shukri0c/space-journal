@@ -121,11 +121,11 @@ export default function AstronomyWidgetClient() {
               />
             </div>
 
-            <p className="text-gray-300 text-sm leading-relaxed">
-              {nasaEvent.explanation.length > 200
-                ? `${nasaEvent.explanation.substring(0, 200)}...`
-                : nasaEvent.explanation}
-            </p>
+            <div className="max-h-32 overflow-y-auto mb-3">
+              <p className="text-gray-300 text-sm leading-relaxed pr-2">
+                {nasaEvent.explanation}
+              </p>
+            </div>
           </div>
         )}
       </div>
