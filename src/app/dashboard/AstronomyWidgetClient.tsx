@@ -121,7 +121,7 @@ export default function AstronomyWidgetClient() {
               />
             </div>
 
-            <div className="max-h-32 overflow-y-auto mb-3">
+            <div className="max-h-32 overflow-y-auto mb-3 scrollbar-thin scrollbar-track-gray-800 scrollbar-thumb-gray-600 scrollbar-thumb-rounded hover:scrollbar-thumb-gray-500">
               <p className="text-gray-300 text-sm leading-relaxed pr-2">
                 {nasaEvent.explanation}
               </p>
