@@ -4,7 +4,7 @@ _A personal stargazing journal used to log observations aswell as display real a
 
 ---
 
-## ✨ Features
+## Features
 
 - **User Authentication** - Secure sign up and login using NextAuth.js
 - **Journal Entries** - Create, read, update, and delete stargazing observations
@@ -12,6 +12,12 @@ _A personal stargazing journal used to log observations aswell as display real a
 - **Sun & Moon Data** - Displays sunrise, sunset, moonrise, moonset, and moon phase based on user location
 - **Responsive Design** - Mobile-friendly interface built with Tailwind CSS
 - **Modern Stack** - Built with Next.js 15, TypeScript, and Prisma ORM
+  
+---
+
+## 🚀 Live Demo
+The application is deployed on Vercel: 
+[https://space-journal.vercel.app]
 
 ---
 
@@ -25,11 +31,6 @@ _A personal stargazing journal used to log observations aswell as display real a
 - **Deployment**: Vercel, Supabase (Database)
 - **Styling**: Tailwind CSS with custom animations
 
----
-## Live Demo
-
-The application is deployed on Vercel:  
-**[https://space-journal.vercel.app](https://space-journal.vercel.app)**
 ---
 
 ## Setup Instructions
@@ -54,13 +55,13 @@ cp .env.example .env.local
 ```
 Fill in your:
 
-Database URL
+- Database URL
 
-NextAuth secret
+- NextAuth secret
 
-NASA API key
+- NASA API key
 
-WeatherAPI key
+- WeatherAPI key
 
 4. Set up database
 ```
