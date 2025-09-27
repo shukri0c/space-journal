@@ -3,6 +3,11 @@
 _A personal stargazing journal used to log observations aswell as display real astronomical data_
 
 ---
+<img src="screenshots/hero-dashboard.png" alt="Space Journal Mobile Mockup" width="300"/>
+<br>
+<img src="screenshots/view-entry.png" alt="Space Journal Mobile Mockup" width="300"/>
+<br>
+
 
 ## Features
 
@@ -15,7 +20,7 @@ _A personal stargazing journal used to log observations aswell as display real a
   
 ---
 
-## 🚀 Live Demo
+## Live Demo
 The application is deployed on Vercel: 
 [https://space-journal.vercel.app]
 
@@ -32,6 +37,11 @@ The application is deployed on Vercel:
 - **Styling**: Tailwind CSS with custom animations
 
 ---
+## Future features
+- **Search for your entries**
+- **Add voice notes to your entries**
+- **Community sharing**
+- **Profile**
 
 ## Setup Instructions
 
