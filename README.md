@@ -3,9 +3,9 @@
 _A personal stargazing journal used to log observations aswell as display real astronomical data_
 
 ---
-<img src="screenshots/hero-dashboard.png" alt="Space Journal Mobile Mockup" width="300"/>
+<img src="screenshots/hero-dashboard.png" alt="Space Journal Mobile Mockup" width="1000"/>
 <br>
-<img src="screenshots/view-entry.png" alt="Space Journal Mobile Mockup" width="300"/>
+<img src="screenshots/view_entry.png"  width="1000"/>
 <br>
 
 
